@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  GameRAW
+
+  Created by Abdhi P on 09/09/23.
+  
+*/
+
+// MARK: TabBar
+"tabbar.title.games" = "Games";
+"tabbar.title.search" = "Search";
+"tabbar.title.favorite" = "Favorite";
+"tabbar.title.profile" = "Profile";
+
+// MARK: Games
+"games.header.title" = "All Games";
+"games.header.subtitle" = "You might will like it";
+"games.content-row.release-date" = "Release date:";
+"games.content-row.genres" = "Genres:";
+
+// MARK: Game Detail
+"game.detail.action.back" = "Back";
+"game.detail.content.ratings-%@" = "%@ Ratings";
+"game.detail.content.about" = "About";
+"game.detail.action.show-less" = "Show less";
+"game.detail.action.read-more" = "Read more";
+"game.detail.content.not-rated" = "Not rated";
+"game.detail.content.title.platforms" = "Platforms";
+"game.detail.content.title.metascore" = "Metascore";
+"game.detail.content.title.genre" = "Genre";
+"game.detail.content.title.release-date" = "Release date";
+"game.detail.content.title.developer" = "Developer";
+"game.detail.content.title.publisher" = "Publisher";
+"game.detail.content.title.age-rating" = "Age rating";
+
+// MARK: Search
+"search.placeholder.search-games" = "Search games";
+"search.message.find-games" = "Find the game you want";
+"search.message.did-not-find-games" = "Didn't found the games";
+
+// MARK: Favorite
+"favorite.header.title" = "Favorite Games";
+"favorite.header.subtitle" = "You have been save it";
+"favorite.message.dont-have-favorite-games" = "You don't have any favorite games yet";
+"favorite.content-row.release-%@" = "Release: %@";
+"favorite.content-row.rating-%@" = "Rating: %@";

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22G90" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GameEntity" representedClassName="GameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="backgroundImage" optional="YES" attributeType="String"/>
+        <attribute name="descriptionRaw" optional="YES" attributeType="String"/>
+        <attribute name="genres" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="playtime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="ratingTop" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="platforms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlatformsEntity" inverseName="game" inverseEntity="PlatformsEntity"/>
+        <relationship name="ratings" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubDetailGameEntity" inverseName="ratings" inverseEntity="SubDetailGameEntity"/>
+        <relationship name="subDetails" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubDetailGameEntity" inverseName="subDetails" inverseEntity="SubDetailGameEntity"/>
+    </entity>
+    <entity name="PlatformsEntity" representedClassName="PlatformsEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="game" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="platforms" inverseEntity="GameEntity"/>
+    </entity>
+    <entity name="SubDetailGameEntity" representedClassName="SubDetailGameEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="iconColor" optional="YES" attributeType="String" valueTransformerName="SerializableColorTransformer" customClassName="SerializableColor"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="ratings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="ratings" inverseEntity="GameEntity"/>
+        <relationship name="subDetails" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameEntity" inverseName="subDetails" inverseEntity="GameEntity"/>
+    </entity>
+</model>

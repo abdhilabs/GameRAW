@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "9734D4C3-A416-4B60-8321-E25C814CA1D7",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:GameRAW.xcodeproj",
+        "identifier" : "9A0A49F02A64A20C00C57183",
+        "name" : "GameRAWTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  GameRAW
+
+  Created by Abdhi P on 09/09/23.
+  
+*/
+
+// MARK: TabBar
+"tabbar.title.games" = "Permainan";
+"tabbar.title.search" = "Cari";
+"tabbar.title.favorite" = "Favorit";
+"tabbar.title.profile" = "Profil";
+
+// MARK: Games
+"games.header.title" = "Semua Permainan";
+"games.header.subtitle" = "Anda mungkin akan menyukainya";
+"games.content-row.release-date" = "Tanggal rilis:";
+"games.content-row.genres" = "Genre:";
+
+// MARK: Game Detail
+"game.detail.action.back" = "Kembali";
+"game.detail.content.ratings-%@" = "%@ Penilaian";
+"game.detail.content.about" = "Tentang";
+"game.detail.action.show-less" = "Tampilkan lebih sedikit";
+"game.detail.action.read-more" = "Baca lebih lanjut";
+"game.detail.content.not-rated" = "Tidak dinilai";
+"game.detail.content.title.platforms" = "Platform";
+"game.detail.content.title.metascore" = "Skor Meta";
+"game.detail.content.title.genre" = "Genre";
+"game.detail.content.title.release-date" = "Tanggal Rilis";
+"game.detail.content.title.developer" = "Pengembang";
+"game.detail.content.title.publisher" = "Penerbit";
+"game.detail.content.title.age-rating" = "Rating Usia";
+
+// MARK: Search
+"search.placeholder.search-games" = "Cari permainan";
+"search.message.find-games" = "Temukan permainan yang Anda inginkan";
+"search.message.did-not-find-games" = "Tidak menemukan permainan";
+
+// MARK: Favorite
+"favorite.header.title" = "Permainan Favorit";
+"favorite.header.subtitle" = "Anda telah simpan sebelumnya";
+"favorite.message.dont-have-favorite-games" = "Anda belum memiliki permainan favorit";
+"favorite.content-row.release-%@" = "Rilis: %@";
+"favorite.content-row.rating-%@" = "Penilaian: %@";
