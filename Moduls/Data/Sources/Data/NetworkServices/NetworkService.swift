@@ -28,7 +28,7 @@ final class NetworkService {
             }
             
             if response.statusCode != 200 {
-              let message = jsonResponse["message"] as? String ?? "Server error with http code: \(response.statusCode)"
+              let message = jsonResponse["error"] as? String ?? "Server error with http code: \(response.statusCode)"
               promise(.failure(ApiError.middlewareError(code: response.statusCode, message: message)))
               return
             }

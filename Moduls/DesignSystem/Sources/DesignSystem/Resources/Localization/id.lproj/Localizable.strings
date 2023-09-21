@@ -44,3 +44,7 @@
 "favorite.message.dont-have-favorite-games" = "Anda belum memiliki permainan favorit";
 "favorite.content-row.release-%@" = "Rilis: %@";
 "favorite.content-row.rating-%@" = "Penilaian: %@";
+
+// MARK: Widget
+"widget.placeholder.title" = "Pilih Permainan";
+"widget.placeholder.subtitle" = "Pilih game yang mungkin Anda sukai";

@@ -26,7 +26,7 @@ public struct Game: Hashable {
   public init(
     id: Int,
     title: String,
-    backgroundImage: String,
+    backgroundImage: String = "",
     releaseDate: String = "",
     genres: String = "",
     playtime: Int = 0,

@@ -44,3 +44,7 @@
 "favorite.message.dont-have-favorite-games" = "You don't have any favorite games yet";
 "favorite.content-row.release-%@" = "Release: %@";
 "favorite.content-row.rating-%@" = "Rating: %@";
+
+// MARK: Widget
+"widget.placeholder.title" = "Pick Games";
+"widget.placeholder.subtitle" = "Pick the game you might like";
