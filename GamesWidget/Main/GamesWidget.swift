@@ -59,8 +59,19 @@ struct GamesWidget: Widget {
     IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
       GamesWidgetView(entry: entry)
     }
+    .contentMarginsDisabledIfAvailable()
     .configurationDisplayName("widget.placeholder.title".localized)
     .description("widget.placeholder.subtitle".localized)
     .supportedFamilies([.systemSmall])
+  }
+}
+
+extension WidgetConfiguration {
+  func contentMarginsDisabledIfAvailable() -> some WidgetConfiguration {
+    if #available(iOSApplicationExtension 17.0, *) {
+      return self.contentMarginsDisabled()
+    } else {
+      return self
+    }
   }
 }
