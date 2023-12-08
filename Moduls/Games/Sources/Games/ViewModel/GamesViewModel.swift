@@ -14,10 +14,12 @@ public protocol GamesViewModel: AnyObservableObject {
   var isGameFavorite: Published<ViewState<Bool>>.Publisher { get }
   var saveGame: Published<ViewState<Bool>>.Publisher { get }
   var deleteGame: Published<ViewState<Bool>>.Publisher { get }
+  var refreshGames: Published<ViewState<[Game]>>.Publisher { get }
   var games: Published<ViewState<[Game]>>.Publisher { get }
   var gameDetail: Published<ViewState<Game>>.Publisher { get }
   var isFullSize: Bool { get }
   
+  func refreshGames(with newData: Game, from oldGames: [Game])
   func getGames()
   func searchGames(with query: String)
   func getDetailGame(with id: Int)
@@ -30,6 +32,9 @@ public final class GamesViewModelImpl: GamesViewModel, ObservableObject {
   
   public var isGameFavorite: Published<ViewState<Bool>>.Publisher { $_isGameFavorite }
   @Published private var _isGameFavorite: ViewState<Bool> = .Initiate()
+  
+  public var refreshGames: Published<ViewState<[Game]>>.Publisher { $_refreshGames }
+  @Published private var _refreshGames: ViewState<[Game]> = .Initiate()
   
   public var games: Published<ViewState<[Game]>>.Publisher { $_games }
   @Published private var _games: ViewState<[Game]> = .Initiate()
@@ -70,6 +75,18 @@ public final class GamesViewModelImpl: GamesViewModel, ObservableObject {
       self.saveGameUseCase = saveGameUseCase
       self.deleteGameUseCase = deleteGameUseCase
     }
+  
+  public func refreshGames(with newData: Game, from oldGames: [Game]) {
+    var games = oldGames
+    games = games.map {
+      var oldData = $0
+      if newData.id == oldData.id {
+        oldData.isFavorite = newData.isFavorite
+      }
+      return oldData
+    }
+    _refreshGames = .Success(data: games)
+  }
   
   public func getGames() {
     _games = .Loading()

@@ -17,6 +17,8 @@
 "games.header.subtitle" = "You might will like it";
 "games.content-row.release-date" = "Release date:";
 "games.content-row.genres" = "Genres:";
+"games.context-menu.add-favorite" = "Add to Favorites";
+"games.context-menu.delete-favorite" = "Delete from Favorites";
 
 // MARK: Game Detail
 "game.detail.action.back" = "Back";

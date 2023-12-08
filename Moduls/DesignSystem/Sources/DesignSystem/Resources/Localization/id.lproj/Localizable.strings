@@ -17,6 +17,8 @@
 "games.header.subtitle" = "Anda mungkin akan menyukainya";
 "games.content-row.release-date" = "Tanggal rilis:";
 "games.content-row.genres" = "Genre:";
+"games.context-menu.add-favorite" = "Tambahkan ke Favorit";
+"games.context-menu.delete-favorite" = "Hapus dari Favorit";
 
 // MARK: Game Detail
 "game.detail.action.back" = "Kembali";

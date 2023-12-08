@@ -21,6 +21,7 @@ public struct GamesView: View {
   @State private var error: ErrorType = (false, "")
   @State private var games: [Game] = []
   
+  private let refreshGames = NotificationCenter.default.publisher(for: Notifications.refreshGames)
   private let columns = [
     GridItem(.flexible(), spacing: 8),
     GridItem(.flexible(), spacing: 8)
@@ -47,6 +48,24 @@ public struct GamesView: View {
               navigation.navigate(to: .detailGame(id: item.id))
             }, label: {
               BannerGameRow(item: item)
+                .contextMenu {
+                  Button {
+                    var newData = item
+                    if item.isFavorite {
+                      viewModel.deleteGame(with: item.id)
+                      newData.isFavorite = false
+                    } else {
+                      viewModel.saveGame(item: item)
+                      newData.isFavorite = true
+                    }
+                    refreshGames(newData: newData)
+                  } label: {
+                    Label(
+                      item.isFavorite ?
+                      "games.context-menu.delete-favorite".localized : "games.context-menu.add-favorite".localized,
+                      systemImage: item.isFavorite ? "heart.fill" : "heart")
+                  }
+                }
             })
           }
                     
@@ -69,6 +88,17 @@ public struct GamesView: View {
       Spacer()
     }
     .background(Color.Background.background)
+    .onReceive(refreshGames) { data in
+      if let game = data.object as? Game {
+        refreshGames(newData: game)
+      }
+    }
+    .viewState(
+      viewModel.refreshGames,
+      onSuccess: { data in
+        games = data
+      }
+    )
     .viewState(
       viewModel.games,
       onLoading: { state in
@@ -81,6 +111,10 @@ public struct GamesView: View {
         self.error = (true, error.localizedDescription)
       }
     )
+  }
+  
+  private func refreshGames(newData: Game) {
+    viewModel.refreshGames(with: newData, from: games)
   }
   
   private func getGames() {
