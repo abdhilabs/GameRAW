@@ -18,6 +18,7 @@ public struct Game: Hashable {
   public var rating: Double = 0.0
   public var ratingTop: Int = 0
   public var description: String = ""
+  public var isFavorite: Bool = false
   public var ratings: [SubDetailGame] = []
   public var subDetails: [SubDetailGame] = []
   
@@ -33,6 +34,7 @@ public struct Game: Hashable {
     rating: Double = 0.0,
     ratingTop: Int = 0,
     description: String = "",
+    isFavorite: Bool = false,
     platforms: [String] = [],
     ratings: [SubDetailGame] = [],
     subDetails: [SubDetailGame] = []) {
@@ -46,6 +48,7 @@ public struct Game: Hashable {
       self.rating = rating
       self.ratingTop = ratingTop
       self.description = description
+      self.isFavorite = isFavorite
       self.ratings = ratings
       self.subDetails = subDetails
     }

@@ -20,13 +20,12 @@ open class DetailGame: DetailGameUseCase {
   }
   
   public func execute(id: Int) -> AnyPublisher<Game, Error> {
-    return repository.detailGameLocal(id: id)
-      .compactMap { $0.toGame() }
-      .catch({ _ in
-        return self.repository.detailGameRemote(id: id)
-          .compactMap { $0.toGame() }
-          .eraseToAnyPublisher()
-      })
+    return repository.getGamesFavorite()
+      .compactMap { $0.map { Int($0.id) } }
+      .flatMap { idGamesFavorite in
+        self.repository.detailGameRemote(id: id)
+          .compactMap { $0.toGame(isFavorite: idGamesFavorite.contains($0.id)) }
+      }
       .eraseToAnyPublisher()
   }
 }

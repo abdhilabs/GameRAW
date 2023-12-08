@@ -8,7 +8,7 @@
 import Data
 
 extension GameResponse {
-  func toGame() -> Game {
+  func toGame(isFavorite: Bool = false) -> Game {
     return Game(
       id: id ?? 0,
       title: title ?? "-",
@@ -19,6 +19,7 @@ extension GameResponse {
       rating: rating ?? 0,
       ratingTop: ratingTop ?? 0,
       description: descriptionRaw ?? "-",
+      isFavorite: isFavorite,
       platforms: parentPlatforms?.map({ $0.platform?.slug ?? "" }) ?? [],
       ratings: getRatings(),
       subDetails: getSubDetails())
@@ -132,6 +133,7 @@ extension GameEntity {
       rating: rating,
       ratingTop: Int(ratingTop),
       description: descriptionRaw ?? "",
+      isFavorite: true,
       platforms: (platforms?.allObjects as? [PlatformsEntity] ?? []).map({ $0.name ?? "" }),
       ratings: (ratings?.allObjects as? [SubDetailGameEntity] ?? []).map({ $0.toSubDetailGame() }),
       subDetails: (subDetails?.allObjects as? [SubDetailGameEntity] ?? [])

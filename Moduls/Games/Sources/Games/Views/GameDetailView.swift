@@ -17,7 +17,6 @@ public struct GameDetailView: View {
   
   @Store var viewModel = Factory.shared.resolve(GamesViewModel.self)
   
-  @State private var isFavorite = false
   @State private var isLoading = false
   @State private var isReadMore = false
   @State private var error: ErrorType = (false, "")
@@ -206,7 +205,7 @@ public struct GameDetailView: View {
       if !isLoading && !error.state {
         ToolbarItem(placement: .navigationBarTrailing) {
           Button(action: {
-            if isFavorite {
+            if item.isFavorite {
               viewModel.deleteGame(with: id)
             } else {
               viewModel.saveGame(item: item)
@@ -214,7 +213,7 @@ public struct GameDetailView: View {
             
             viewModel.isGameFavorited(with: id)
           }, label: {
-            Image(systemName: isFavorite ? "heart.fill" : "heart")
+            Image(systemName: item.isFavorite ? "heart.fill" : "heart")
           })
         }
       }
@@ -240,7 +239,8 @@ public struct GameDetailView: View {
     .viewState(
       viewModel.isGameFavorite,
       onSuccess: { data in
-        isFavorite = data
+        item.isFavorite = data
+        Notifications.refreshGames.post(with: item)
       },
       onFailed: { error in
         self.error = (true, error.localizedDescription)
@@ -266,7 +266,6 @@ public struct GameDetailView: View {
   private func getGame() {
     error = (false, "")
     viewModel.getDetailGame(with: id)
-    viewModel.isGameFavorited(with: id)
   }
 }
 
