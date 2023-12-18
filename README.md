@@ -9,3 +9,10 @@ The feature I built for this project:
 - Search Games
 - Favorite Games
 - Detail Game
+
+### Screenshoots
+<p float="left">
+    <img src='https://github.com/abdhilabs/GameRAW/blob/main/Screenshoots/1.png' width='250'>
+    <img src='https://github.com/abdhilabs/GameRAW/blob/main/Screenshoots/2.png' width='250'>
+    <img src='https://github.com/abdhilabs/GameRAW/blob/main/Screenshoots/3.png' width='250'>
+</p>
