@@ -38,13 +38,13 @@ extension GameResponse {
   private func getDataRating(rating: String?) -> (id: Int, color: String) {
     switch rating {
     case "exceptional":
-      return (1, "Green")
+      return (1, "Green-Theme")
     case "recommended":
-      return (2, "Blue")
+      return (2, "Blue-Theme")
     case "meh":
-      return (3, "Orange")
+      return (3, "Orange-Theme")
     case "skip":
-      return (4, "Red")
+      return (4, "Red-Theme")
     default:
       return (5, "")
     }
@@ -53,11 +53,11 @@ extension GameResponse {
   private func getColorMetacritic(rating: Int) -> String {
     switch rating {
     case 75...100:
-      return "Green"
+      return "Green-Theme"
     case 50...74:
-      return "Yellow"
+      return "Yellow-Theme"
     case ..<49:
-      return "Red"
+      return "Red-Theme"
     default:
       return ""
     }
